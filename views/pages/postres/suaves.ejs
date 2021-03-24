@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postres suaves</title>
+    <link rel="stylesheet" href="/css/postres.css">
+</head>
+<body>
+   
+        <h1>Postres suaves</h1>
+        <a href="/">Volver a inicio</a>
+        
+        <div>
+            <% for( let index = 0; index < postres.length; index++ ) { %>
+                <div class="postre <%= postres[index].cssClass %> ">
+                    <h3><%= postres[index].nombre %> de <%= postres[index].sabor %></h3>
+                    <% if (postres[index].img) { %>
+                        <img src="<%= postres[index].img %>" alt="">
+                    <% } else { %>
+                        <img src="/img/no_image_available.png" alt="">
+                    <% } %> 
+                    <a href="<%= `/postres/${postres[index].tipoPostre}/postre?id=${postres[index].id}` %>">Ver más</a>
+                </div>
+            <% } %>
+        </div>
+
+     
+</body>
+</html>
